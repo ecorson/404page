@@ -1,0 +1,11 @@
+.demo {
+  width: 100%;
+}
+.ui-widget {
+  margin: 50px auto;
+  width: 500px;
+}
+body{padding:0;width: 100%;}
+form {
+  margin-left: 50px;
+}

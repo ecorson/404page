@@ -1,0 +1,64 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/jquery-ui-1.8.21.custom.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/libs/jquery-1.7.2.min.js"></script>
+  <script src="js/libs/jquery-ui-1.8.21.custom.min.js"></script>
+</head>
+<body>
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+<div class="demo">
+<div class="ui-widget">
+  <img src="img/uiowa.png" alt="UIowa Logo" />
+  <p>The site you were looking for was not found at this URL.  PLease try again by searching below.</p>
+  <form id="searchform" name="gs" method="get" action="http://search.uiowa.edu/search" class="search_form not_for_mobile">
+            <input type="hidden" name="entqr" value="0" />
+              <input type="hidden" name="ud" value="1" />
+              <input type="hidden" name="sort" value="date:D:L:d1" />
+              <input type="hidden" name="output" value="xml_no_dtd" />
+              <input type="hidden" name="oe" value="UTF-8" /><input type="hidden" name="ie" value="UTF-8" />
+              <input type="hidden" name="client" value="default_frontend" />
+              <input type="hidden" name="proxystylesheet" value="our_frontend" />
+              <input type="hidden" name="site" value="default_collection" /><input type="image" class="search_button" src="http://www.uiowa.edu/homepage/images/gsa-base/button-hp.gif" alt="Search" /><input id="searchbox" name="q" type="text" maxlength="256" style="width:300px" value="Search" class="search_input" title="Search Terms" onfocus="this.value=''" onblur="if(this.value==''){this.value='Search'}" />
+    </form>
+</div>
+</div><!-- End demo -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32751128-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+ <script>
+	$(function() {
+		$( "#searchbox" ).autocomplete({
+			source: "suggest.php",
+			minLength: 2,
+			select: function( event, ui ) {
+              if(ui.item){
+                $(event.target).val(ui.item.value);
+              }
+              $('#searchform').submit();     
+			}
+		});
+	});
+	</script>
+</body>
+</html>
